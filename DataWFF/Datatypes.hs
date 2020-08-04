@@ -15,7 +15,8 @@ data Preposition
   = PrepositionWithUnknownValue 
     LetterThatRepresentsAPreposition 
   | PrepositionWithKnownValue 
-    LetterThatRepresentsAPreposition PrepositionValue 
+    LetterThatRepresentsAPreposition PrepositionValue
+  deriving (Eq)
 
 
 data WFF preposition
@@ -25,6 +26,7 @@ data WFF preposition
   | Or     (WFF preposition) (WFF preposition)
   | Iff    (WFF preposition) (WFF preposition)
   | Imply  (WFF preposition) (WFF preposition)
+  deriving (Eq)
 
 
 data WFFProperties = Tautology | Satisfiable | Contradiction 
