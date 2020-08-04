@@ -1,9 +1,12 @@
-module Tools.HelperTools 
+module Tools.StringsManipulation
   ( sublist
   , getIndexOfFirstOperation
   , getIndexOfLastOperation
   , getIndexOfOperands 
   , getComplexity
+  , isOnlyEspaces
+  , addParenthesis
+  , addStringBetweenOtherTwoStrings
   ) 
   where
 
@@ -12,6 +15,19 @@ import Text.Regex.Posix
 
 
 type FormulaInString = String
+
+
+isOnlyEspaces :: String -> Bool
+isOnlyEspaces str = null $ fst $ (!!0) $ lex str 
+
+
+addParenthesis :: String -> String
+addParenthesis string = "(" ++ string ++ ")"
+
+
+addStringBetweenOtherTwoStrings :: String -> String -> String -> String 
+addStringBetweenOtherTwoStrings 
+  stringLeft stringRigth stringCenter = stringLeft ++ stringCenter ++ stringRigth
 
 
 getComplexity :: FormulaInString -> Int
