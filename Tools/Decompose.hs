@@ -5,7 +5,7 @@ module Tools.Decompose
 
 
 import Text.Regex.Posix
-import Tools.HelperTools 
+import Tools.StringsManipulation
   ( sublist
   , getIndexOfFirstOperation
   , getIndexOfLastOperation
