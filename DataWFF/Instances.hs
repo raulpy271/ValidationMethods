@@ -12,6 +12,11 @@ module DataWFF.Instances
 import DataWFF.Datatypes
 import Tools.Decompose ( decomposeFormulaInString)
 import Tools.SyntacticAnalyzer (isValid)
+import Tools.StringsManipulation 
+  ( isOnlyEspaces
+  , addParenthesis
+  , addStringBetweenOtherTwoStrings 
+  )         
 
 
 instance Show Preposition
@@ -97,17 +102,4 @@ putCharInPreposition char
   | char == '0' = PrepositionWithKnownValue '0' False
   | char == '1' = PrepositionWithKnownValue '1' True
   | otherwise = PrepositionWithUnknownValue char
-
-
-isOnlyEspaces :: String -> Bool
-isOnlyEspaces str = null $ fst $ (!!0) $ lex str 
-
-
-addParenthesis :: String -> String
-addParenthesis string = "(" ++ string ++ ")"
-
-addStringBetweenOtherTwoStrings :: String -> String -> String -> String 
-addStringBetweenOtherTwoStrings 
-  stringLeft stringRigth stringCenter = stringLeft ++ stringCenter ++ stringRigth
-
 
