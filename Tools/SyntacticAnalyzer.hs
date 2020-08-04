@@ -1,11 +1,11 @@
 module Tools.SyntacticAnalyzer (isValid) where
 
 
-import Tools.HelperTools 
+import Tools.StringsManipulation
   ( sublist
-    , getIndexOfOperands
-    , getComplexity
-    )
+  , getIndexOfOperands
+  , getComplexity
+  )
 
 
 type FormulaInString = String
