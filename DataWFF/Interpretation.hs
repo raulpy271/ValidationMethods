@@ -1,4 +1,4 @@
-module Interpretation
+module DataWFF.Interpretation
   ( interpretation
   
   )
