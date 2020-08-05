@@ -16,7 +16,17 @@ import Tools.StringsManipulation
   ( isOnlyEspaces
   , addParenthesis
   , addStringBetweenOtherTwoStrings 
-  )         
+  )
+
+instance Eq Preposition
+  where
+    (==) (PrepositionWithUnknownValue leftChar)
+         (PrepositionWithUnknownValue rigthChar)
+         = leftChar == rigthChar
+    (==) (PrepositionWithKnownValue _ leftValue)
+         (PrepositionWithKnownValue _ rigthValue)
+         = leftValue == rigthValue
+    (==) _ _ = False 
 
 
 instance Show Preposition
