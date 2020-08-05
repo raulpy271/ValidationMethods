@@ -1,4 +1,4 @@
-module SemancticTree.SemancticTree
+module SemanticTree.SemanticTree
   ( isTautology
   )
   where
