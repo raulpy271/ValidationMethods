@@ -6,7 +6,7 @@ module Tools.StringsManipulation
   , getComplexity
   , isOnlyEspaces
   , addParenthesis
-  , addStringBetweenOtherTwoStrings
+  , addStringBetweenOtherTwoStrings 
   ) 
   where
 
@@ -15,19 +15,6 @@ import Text.Regex.Posix
 
 
 type FormulaInString = String
-
-
-isOnlyEspaces :: String -> Bool
-isOnlyEspaces str = null $ fst $ (!!0) $ lex str 
-
-
-addParenthesis :: String -> String
-addParenthesis string = "(" ++ string ++ ")"
-
-
-addStringBetweenOtherTwoStrings :: String -> String -> String -> String 
-addStringBetweenOtherTwoStrings 
-  stringLeft stringRigth stringCenter = stringLeft ++ stringCenter ++ stringRigth
 
 
 getComplexity :: FormulaInString -> Int
@@ -40,6 +27,20 @@ removeDuplicate string = remove string []
       | null xs = newstring ++ [x]
       | elem x xs = remove xs newstring
       | otherwise = remove xs (newstring ++ [x])
+
+
+isOnlyEspaces :: String -> Bool
+isOnlyEspaces str = null $ fst $ (!!0) $ lex str 
+
+
+addParenthesis :: String -> String
+addParenthesis string = "(" ++ string ++ ")"
+
+
+addStringBetweenOtherTwoStrings :: String -> String -> String -> String 
+addStringBetweenOtherTwoStrings 
+  stringLeft stringRigth stringCenter 
+    = stringLeft ++ stringCenter ++ stringRigth
 
 
 getPreposicoes :: FormulaInString -> String
