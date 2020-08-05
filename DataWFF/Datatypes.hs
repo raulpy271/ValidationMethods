@@ -16,7 +16,6 @@ data Preposition
     LetterThatRepresentsAPreposition 
   | PrepositionWithKnownValue 
     LetterThatRepresentsAPreposition PrepositionValue
-  deriving (Eq)
 
 
 data WFF preposition
