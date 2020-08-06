@@ -1,7 +1,10 @@
 module SemanticTree.ViewSemanticTree
   ( viewSemanticTreeProcess
+  , truePrepositionValue
+  , falsePrepositionValue
   )
   where
+
 
 import DataWFF.PropositionalCalculus
 import DataWFF.Interpretation (interpretation)
