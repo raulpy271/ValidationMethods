@@ -3,17 +3,17 @@ module SemanticTree.SemanticTree
   )
   where
 
+
 import DataWFF.PropositionalCalculus
 import DataWFF.Interpretation (interpretation)
 import Tools.DataWFFManipulation 
   ( getUnkownPrepositionInWFF 
   , replacePrepositionInFormula
   )
-
-
-(truePrepositionValue, falsePrepositionValue) = 
-  ( PrepositionWithKnownValue '1' True
-  , PrepositionWithKnownValue '0' False
+import SemanticTree.ViewSemanticTree 
+  ( viewSemanticTreeProcess
+  , truePrepositionValue
+  , falsePrepositionValue
   )
 
 
