@@ -27,7 +27,7 @@ This code shows how the semantic tree method works (note that all interpretation
 
 ```
 
-*SemanticTree.SemanticTree> distributivityLaw = readWFF "(((p) ^ (q)) V (r)) = (((p) V (r)) ^ ((q) V (r))) "
+*SemanticTree.SemanticTree> distributivityLaw = "(((p) ^ (q)) V (r)) = (((p) V (r)) ^ ((q) V (r))) "
 
 *SemanticTree.SemanticTree> (putStrLn . viewSemanticTreeProcess . readWFF) distributivityLaw
 
