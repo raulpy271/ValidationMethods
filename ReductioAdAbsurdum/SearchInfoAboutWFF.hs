@@ -11,11 +11,11 @@ module ReductioAdAbsurdum.SearchInfoAboutWFF
 
 import DataWFF.PropositionalCalculus
 import DataWFF.Interpretation (interpretation)
-import Tools.DataWFFManipulation (replacePrepositionInFormula)
 import Tools.DataWFFManipulation
   ( truePrepositionValue
   , falsePrepositionValue
   , negateWFF
+  , replacePrepositionInFormula
   )
 
 
