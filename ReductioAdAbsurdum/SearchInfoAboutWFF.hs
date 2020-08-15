@@ -79,10 +79,7 @@ searchForAbsurdInList listPairPrepostionValue =
 searchValuesOfPrepositionsInTautology 
   :: WFF Preposition -> [PairOfPrepositionAndYourValue]
 searchValuesOfPrepositionsInTautology (Atomic preposition) = 
-  case preposition of
-    PrepositionWithKnownValue _ _ -> []
-    PrepositionWithUnknownValue char -> 
-      [ (preposition, truePrepositionValue ) ]
+  [(preposition, truePrepositionValue)]
 
 
 searchValuesOfPrepositionsInTautology (Not wff) 
@@ -145,10 +142,7 @@ searchValuesOfPrepositionsInTautology (Imply left rigth) =
 searchValuesOfPrepositionsInContradiction
   :: WFF Preposition -> [PairOfPrepositionAndYourValue]
 searchValuesOfPrepositionsInContradiction (Atomic preposition) =
-  case preposition of
-    PrepositionWithKnownValue _ _ -> []
-    PrepositionWithUnknownValue char -> 
-      [ (preposition, falsePrepositionValue) ]
+  [ (preposition, falsePrepositionValue) ]
 
 
 searchValuesOfPrepositionsInContradiction (Not wff)
