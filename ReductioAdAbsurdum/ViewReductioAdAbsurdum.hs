@@ -24,7 +24,7 @@ viewReductioAdAbsurdumProcess wff =
   viewReductioAdAbsurdumHelper wff initialMenssage
   where
     initialMenssage = "\n"
-      ++ "Assuming that the formula is a contradiction we get:"
+      ++ "Assuming that the formula is a contradiction we have:"
     viewReductioAdAbsurdumHelper
       :: WFF Preposition
       -> String
