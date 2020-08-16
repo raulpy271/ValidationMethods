@@ -11,7 +11,6 @@ import DataWFF.Interpretation (interpretation)
 import Tools.DataWFFManipulation
   ( truePrepositionValue
   , falsePrepositionValue
-  , negateWFF
   )
 
 
