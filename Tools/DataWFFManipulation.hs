@@ -4,10 +4,19 @@ module Tools.DataWFFManipulation
   , replacePrepositionInFormula 
   , getUnkownPreposition 
   , getUnkownPrepositionInWFF 
+  , truePrepositionValue
+  , falsePrepositionValue
+  , negateWFF 
   )
   where
 
 import DataWFF.PropositionalCalculus
+
+
+(truePrepositionValue, falsePrepositionValue) = 
+  ( PrepositionWithKnownValue '1' True
+  , PrepositionWithKnownValue '0' False
+  )
 
 
 mapWFF :: (Preposition -> Preposition) -> WFF Preposition -> WFF Preposition
@@ -79,3 +88,9 @@ getUnkownPreposition (x:xs) = x : (getUnkownPreposition xs)
 
 getUnkownPrepositionInWFF :: WFF Preposition -> [Preposition]
 getUnkownPrepositionInWFF = (getUnkownPreposition . getAllAtomicPreposition)
+
+
+negateWFF :: WFF Preposition -> WFF Preposition  
+negateWFF wff = Not (wff)
+
+
