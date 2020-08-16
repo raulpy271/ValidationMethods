@@ -29,9 +29,9 @@ data WFF preposition
 
 
 data WFFProperties 
-= Tautology 
-| Satisfiable 
-| Contradiction 
-| Unknown
+  = Tautology 
+  | Satisfiable 
+  | Contradiction 
+  | Unknown
   deriving (Eq, Show)
 
