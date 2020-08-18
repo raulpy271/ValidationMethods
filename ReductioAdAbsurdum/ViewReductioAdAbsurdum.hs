@@ -16,6 +16,7 @@ import ReductioAdAbsurdum.SearchInfoAboutWFF
   ( applyingDiscoveredValuesInWFF
   , searchForAbsurdInList
   , getInfoAssumingItsNotTautology
+  , hasOnlyKnownPrepositionInWFF 
   )
 
 
@@ -30,8 +31,9 @@ viewReductioAdAbsurdumProcess wff =
       -> String
       -> String
     viewReductioAdAbsurdumHelper wff menssage
-      | null listOfPairPrepositionValueFound = menssage ++ notMenssage
       | hasAbsurd = menssage ++ absurdFoundMenssage
+      | (null listOfPairPrepositionValueFound)
+        || (hasOnlyKnownPrepositionInWFF wff) = menssage ++ notMenssage
       | otherwise = 
         viewReductioAdAbsurdumHelper newWff (menssage ++ otherwiseMenssage)
       where
