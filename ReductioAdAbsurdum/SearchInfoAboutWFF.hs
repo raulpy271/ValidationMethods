@@ -5,6 +5,7 @@ module ReductioAdAbsurdum.SearchInfoAboutWFF
   , searchValuesOfPrepositionsInTautology 
   , searchValuesOfPrepositionsInContradiction
   , getInfoAssumingItsNotTautology 
+  , hasOnlyKnownPrepositionInWFF 
   )
   where
 
@@ -16,10 +17,19 @@ import Tools.DataWFFManipulation
   , falsePrepositionValue
   , negateWFF
   , replacePrepositionInFormula
+  , hasKnownPrepositionInWFF
+  , hasUnknownPrepositionInWFF
   )
 
 
 type PairOfPrepositionAndYourValue = (Preposition, Preposition)
+
+
+hasOnlyKnownPrepositionInWFF :: WFF Preposition -> Bool
+hasOnlyKnownPrepositionInWFF wff 
+  = hasKnownPrepositionInWFF wff
+  && (not $ hasUnknownPrepositionInWFF wff)
+
 
 
 getInfoAssumingItsNotTautology 
