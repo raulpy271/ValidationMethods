@@ -6,6 +6,7 @@ module ReductioAdAbsurdum.SearchInfoAboutWFF
   , searchValuesOfPrepositionsInContradiction
   , getInfoAssumingItsNotTautology 
   , hasOnlyKnownPrepositionInWFF 
+  , hasOnlyKnownPrepositionInList
   )
   where
 
@@ -29,6 +30,15 @@ hasOnlyKnownPrepositionInWFF :: WFF Preposition -> Bool
 hasOnlyKnownPrepositionInWFF wff 
   = hasKnownPrepositionInWFF wff
   && (not $ hasUnknownPrepositionInWFF wff)
+
+
+hasOnlyKnownPrepositionInList :: [Preposition] -> Bool
+hasOnlyKnownPrepositionInList [] = True
+hasOnlyKnownPrepositionInList 
+  ( (PrepositionWithKnownValue _ _)
+  : otherPreposition
+  ) = True && (hasOnlyKnownPrepositionInList otherPreposition)
+hasOnlyKnownPrepositionInList _ = False
 
 
 
@@ -79,11 +89,28 @@ searchForAbsurdInList listPairPrepostionValue =
           -> PairOfPrepositionAndYourValue
           -> Bool
         checksIfTwoPairsHaveTheSamePrepositionButDifferentValue 
-          = (\x y -> ((fst x) == (fst y)) && ( (snd x)  /= (snd y)) ) 
+          =  
+          ( \x y 
+            -> (((fst x) == (fst y)) && ( (snd x)  /= (snd y))) 
+            || (checkContradictionInPair x)
+            || (checkContradictionInPair y)
+          ) 
         searchAbsurdInFistPair =
           checksIfTwoPairsHaveTheSamePrepositionButDifferentValue fistPair
           
     getFirstPrepositionInListOfAbsurd = (\x -> fst (x !! 0) )
+
+
+checkContradictionInPair :: PairOfPrepositionAndYourValue -> Bool
+checkContradictionInPair 
+  ( (PrepositionWithKnownValue _ False)
+  , (PrepositionWithKnownValue _ True) 
+  ) = True
+checkContradictionInPair 
+  ( (PrepositionWithKnownValue _ True) 
+  , (PrepositionWithKnownValue _ False)
+  ) = True
+checkContradictionInPair _ = False
 
 
 searchValuesOfPrepositionsInTautology 
