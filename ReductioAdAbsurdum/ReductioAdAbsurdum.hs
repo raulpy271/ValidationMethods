@@ -16,6 +16,7 @@ import ReductioAdAbsurdum.SearchInfoAboutWFF
   , applyingDiscoveredValuesInWFF 
   , searchForAbsurdInList
   , hasOnlyKnownPrepositionInWFF 
+  , hasOnlyKnownPrepositionInList
   )
 
 
@@ -29,8 +30,7 @@ isTautology wff
 searchForAbsurdInWFF :: WFF Preposition -> Maybe Preposition
 searchForAbsurdInWFF wff  
   | hasAbsurd = absurdFound
-  | (null listOfPairPrepositionValueFound)
-    || (hasOnlyKnownPrepositionInWFF wff) = Nothing
+  | breakCondition = Nothing
   | otherwise = searchForAbsurdInWFF newWff
   where
     newWff = 
@@ -41,5 +41,11 @@ searchForAbsurdInWFF wff
     absurdFound = 
       searchForAbsurdInList listOfPairPrepositionValueFound
     hasAbsurd = isJust absurdFound
+    breakCondition 
+      =  (null listOfPairPrepositionValueFound)
+      || (hasOnlyKnownPrepositionInWFF wff)
+      || ( hasOnlyKnownPrepositionInList 
+           $ map fst listOfPairPrepositionValueFound
+         )
 
 
