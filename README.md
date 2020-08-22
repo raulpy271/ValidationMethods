@@ -1,6 +1,6 @@
 # WFF Validation Methods in Haskell
 
-Module that has methods for validating propositional logic formulas.
+This Module uses the **Semantic Tree** and **Reduction to Absurd** methods to test the validity of propositional logic formulas and shows how these methods work.
 
 ## How to use
 
@@ -11,9 +11,9 @@ This function uses the following convention to read logical operations:
 - "^" for The "and" operation
 - "V" for The "or" operation
 - ">" for The "imply" operation
-- "=" for "The if and only if" operation
+- "=" for The "if and only if" operation
 
-See the exemple storing the morgan law (` ¬(ϕ ∨ ψ) ↔ (¬ϕ ∧ ¬ψ) `):
+See the example storing the morgan law (` ¬(ϕ ∨ ψ) ↔ (¬ϕ ∧ ¬ψ) `):
 
 ```
 *DataWFF.PropositionalCalculus> morganLaw = readWFF "( ~ (p V q) ) = ( ( ~ (p) ) ^ ( ~ (q) ) ) "
@@ -21,7 +21,9 @@ See the exemple storing the morgan law (` ¬(ϕ ∨ ψ) ↔ (¬ϕ ∧ ¬ψ) `):
 
 ## Proofs examples
 
-### Proving the law of distributivity
+### Using Semantic Tree Method
+
+#### Proving the law of distributivity
 
 This code shows how the semantic tree method works (note that all interpretations have a value of 1, so it is a tautology) :
 
@@ -51,6 +53,13 @@ This code shows how the semantic tree method works (note that all interpretation
 Tautology
 ```
 
-***
+### Proof by contradiction
 
-[1]: I know that instead of creating `readWFF` to read formulas I should create an instance of the Read class and then use the `read` function. but I didn't quite understand the methods of this class, so feel free to fix it.
+#### Proving the *Modus Ponens* Rule
+
+#### Rules used by this method
+
+
+---
+
+[1]: I know that instead of creating `readWFF` to read formulas I should create an instance of the Read class and then use the `read` function. But I didn't quite understand the methods of this class, so feel free to fix it.
