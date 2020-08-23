@@ -25,7 +25,7 @@ See the example storing the morgan law (` ¬(ϕ ∨ ψ) ↔ (¬ϕ ∧ ¬ψ) `):
 
 This method places the formula in a tree to test its different interpretations (see the diagram). Each leaf represents the value of an interpretation. When all leaves have true value, the tested formula is a tautology, or when all leaves have false value then the formula is a contradiction.
 
-[Diagram of semantic tree method]!(contraposition-law-graph.png)
+![Diagram of semantic tree method](/SemanticTree/contraposition-law.png)
 
 see other proof using this module:
 
