@@ -1,5 +1,6 @@
 module ReductioAdAbsurdum.ReductioAdAbsurdum
   ( isTautology
+  , laws
   , viewReductioAdAbsurdumProcess
   )
   where
@@ -7,6 +8,7 @@ module ReductioAdAbsurdum.ReductioAdAbsurdum
 
 import DataWFF.PropositionalCalculus
 import Data.Maybe (isJust)
+import ReductioAdAbsurdum.ViewLaws(laws)
 import ReductioAdAbsurdum.ViewReductioAdAbsurdum 
   ( viewReductioAdAbsurdumProcess
   )
