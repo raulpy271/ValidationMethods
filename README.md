@@ -35,9 +35,9 @@ This code shows how the semantic tree method works (note that all interpretation
 
 ```
 
-*SemanticTree.SemanticTree> distributivityLaw = "(((p) ^ (q)) V (r)) = (((p) V (r)) ^ ((q) V (r))) "
+*SemanticTree.SemanticTree> distributivityLaw = readWFF "(((p) ^ (q)) V (r)) = (((p) V (r)) ^ ((q) V (r))) "
 
-*SemanticTree.SemanticTree> (putStrLn . viewSemanticTreeProcess . readWFF) distributivityLaw
+*SemanticTree.SemanticTree> (putStrLn . viewSemanticTreeProcess) distributivityLaw
 
 (((p) ^ (q)) V (r)) = (((p) V (r)) ^ ((q) V (r)))
     (((1) ^ (q)) V (r)) = (((1) V (r)) ^ ((q) V (r)))
@@ -67,8 +67,8 @@ Using contradiction proof, this code proves the inference rule called modus pone
 
 ```
 
-*ReductioAdAbsurdum.ReductioAdAbsurdum> modusPonens = " (p ^ (p > q)) > q"
-*ReductioAdAbsurdum.ReductioAdAbsurdum> (putStrLn . viewSemanticTreeProcess . readWFF) modusPonens
+*ReductioAdAbsurdum.ReductioAdAbsurdum> modusPonens = readWFF  (p ^ (p > q)) > q"
+*ReductioAdAbsurdum.ReductioAdAbsurdum> (putStrLn . viewReductioAdAbsurdumProcess) modusPonens
 
 Assuming that the formula is a contradiction we have:
 ((p) ^ ((p) > (q))) > (q)
