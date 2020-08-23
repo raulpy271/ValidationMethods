@@ -67,7 +67,7 @@ Using contradiction proof, this code proves the inference rule called modus pone
 
 ```
 
-*ReductioAdAbsurdum.ReductioAdAbsurdum> modusPonens = readWFF  (p ^ (p > q)) > q"
+*ReductioAdAbsurdum.ReductioAdAbsurdum> modusPonens = readWFF  "(p ^ (p > q)) > q"
 *ReductioAdAbsurdum.ReductioAdAbsurdum> (putStrLn . viewReductioAdAbsurdumProcess) modusPonens
 
 Assuming that the formula is a contradiction we have:
